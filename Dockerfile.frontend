@@ -1,0 +1,13 @@
+# Dockerfile.frontend
+
+# Use the official Nginx image as the base image
+FROM nginx:alpine
+
+# Copy the build output from your Flutter web app to the Nginx HTML directory
+COPY todofront/build/web /usr/share/nginx/html
+
+# Expose port 80 to serve the web app
+EXPOSE 3000
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]

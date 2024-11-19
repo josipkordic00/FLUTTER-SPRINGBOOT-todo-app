@@ -1,0 +1,17 @@
+# Dockerfile.backend
+
+# Use OpenJDK 17 slim image as the base image
+FROM openjdk:17-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the already built JAR file from the target directory into the container
+COPY todo/target/todo-0.0.1-SNAPSHOT.jar .
+
+# Expose port 8080 to serve the backend application
+EXPOSE 8080
+
+# Start the Spring Boot application
+ENTRYPOINT ["java", "-jar", "todo-0.0.1-SNAPSHOT.jar"]
+
